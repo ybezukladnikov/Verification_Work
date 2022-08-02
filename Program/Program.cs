@@ -31,32 +31,25 @@ void FillArray(string[] array, string characterSet, int minSizeRow, int maxSizeR
 
 }
 
-void ShowArray(string [] array)
-{
-    Console.WriteLine("Created array: ");
-    Console.Write("[");
-    for(int i =0; i<array.Length; i++)
-    {
-        if(i == array.Length-1)
-        {
-            Console.Write(array[i]);
-        }
-        else
-            Console.Write($"{array[i]}, ");
 
-    }
-    Console.Write("]");
-    Console.WriteLine();
-        
-}
+/* Метод формирует строку, которую можно вывести на печать. 
+Атрибуты:
+array - массив из которого формируется строка. 
 
+*/
 string Print(string[] array)
 {
-    // string result = string.Join(", ", array);
-    string result = string.Join(" ", array);
-    string result2 = result.Replace(" ","\", \"");
-    return result2;
+    
+    string temp = string.Join(" ", array);
+    string result = temp.Replace(" ","\", \"");
+    return result;
 }
+
+/* Метод находит размер нового массива путем подсчета элементов исходного массива, которые меньше либо равны 3. 
+Атрибуты:
+array - исходный массив. 
+
+*/
 
 int FindSizeNewArray(string [] array)
 {
@@ -68,6 +61,13 @@ int FindSizeNewArray(string [] array)
     
     return index;
 }
+
+/* Метод создает новый массив из элементов исходного значение которых меньше либо равны 3.  
+Атрибуты:
+1) array - исходный массив. 
+2) size - размер нового массива. 
+
+*/
 
 string [] CreateNewArray(string [] array, int size)
 {
