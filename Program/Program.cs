@@ -1,19 +1,34 @@
-﻿string [] CreateArray(int size, string characterSet, int minSizeRow, int maxSizeRow)
+﻿// Метод создает массив. Атрибут size это размер массива, который задается пользователем. 
+
+string [] CreateArray(int size)
 {
     
     string [] newArray = new string[size];
+    return newArray;
+}
+
+/* Метод заполняет массив случайным символами. 
+Атрибуты:
+1) characterSet - набор символов из которых будет состять элемент массива. 
+2) minSizeRow - минимальная длина элемента массива. 
+3) maxSizeRow - максимальная длина элемента массива. 
+
+*/
+void FillArray(string[] array, string characterSet, int minSizeRow, int maxSizeRow)
+{
     
+    
+    int size = array.Length;
     for(int j=0; j<size; j++)
     {
         int rand = new Random().Next(minSizeRow,maxSizeRow+1);
         for (int i = 0; i<rand; i++)
         {
-            newArray[j] = newArray[j] + characterSet[new Random().Next(0,characterSet.Length)];
+            array[j] = array[j] + characterSet[new Random().Next(0,characterSet.Length)];
         }
     }
 
 
-    return newArray;
 }
 
 void ShowArray(string [] array)
@@ -33,6 +48,14 @@ void ShowArray(string [] array)
     Console.Write("]");
     Console.WriteLine();
         
+}
+
+string Print(string[] array)
+{
+    // string result = string.Join(", ", array);
+    string result = string.Join(" ", array);
+    string result2 = result.Replace(" ","\", \"");
+    return result2;
 }
 
 int FindSizeNewArray(string [] array)
@@ -75,16 +98,24 @@ int minSizeRow = Convert.ToInt32(Console.ReadLine());
 Console.Write("Input max Size Row array: ");
 int maxSizeRow = Convert.ToInt32(Console.ReadLine());
 
-string [] array = CreateArray(size, characterSet, minSizeRow,maxSizeRow);
+string [] array = CreateArray(size);
+FillArray(array, characterSet, minSizeRow,maxSizeRow);
 
-ShowArray(array);
+Console.WriteLine();
+Console.WriteLine("Created initial array: ");
+Console.WriteLine();
+Console.WriteLine($"[\"{Print(array)}\"]");
+Console.WriteLine();
+
 
 int sizeNewArray = FindSizeNewArray(array);
-Console.WriteLine(sizeNewArray);
+
 
 string [] newArray = CreateNewArray(array, sizeNewArray);
 
-ShowArray(newArray);
+Console.WriteLine("Created new array: ");
+Console.WriteLine();
+Console.WriteLine($"[\"{Print(newArray)}\"]");
 
 
 
