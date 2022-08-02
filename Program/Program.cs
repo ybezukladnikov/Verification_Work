@@ -3,8 +3,8 @@
 string [] CreateArray(int size)
 {
     
-    string [] newArray = new string[size];
-    return newArray;
+    return new string[size];
+    
 }
 
 /* Метод заполняет массив случайным символами. 
@@ -51,10 +51,10 @@ array - исходный массив.
 
 */
 
-int FindSizeNewArray(string [] array)
+int FindSizeNewArray(string [] inputArray)
 {
     int index =0;
-    foreach(string el in array)
+    foreach(string el in inputArray)
     {
         if(el.Length <= 3) index++;
     }
@@ -69,11 +69,11 @@ int FindSizeNewArray(string [] array)
 
 */
 
-string [] CreateNewArray(string [] array, int size)
+string [] CreateNewArray(string [] inputArray, int size)
 {
     string [] newArray = new string[size];
     int index = 0;
-    foreach(string el in array)
+    foreach(string el in inputArray)
     {
         if(el.Length<=3)
         {
