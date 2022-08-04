@@ -45,6 +45,8 @@ string Print(string[] array)
     return result;
 }
 
+
+
 /* Метод находит размер нового массива путем подсчета элементов исходного массива, которые меньше либо равны 3. 
 Атрибуты:
 array - исходный массив. 
@@ -117,5 +119,6 @@ Console.WriteLine("Created new array: ");
 Console.WriteLine();
 Console.WriteLine($"[\"{Print(newArray)}\"]");
 
+File.WriteAllText("FileResult", Print(newArray));
 
 
